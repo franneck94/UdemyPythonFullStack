@@ -1,0 +1,40 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Frontend",
+            "type": "shell",
+            "command": "python -m uvicorn frontend.app:app --reload --port 5000 --host 0.0.0.0",
+            "args": [],
+            "group": "build"
+        },
+        {
+            "label": "Backend",
+            "type": "shell",
+            "command": "python -m uvicorn backend.api:app --reload --port 8000 --host 0.0.0.0",
+            "args": [],
+            "group": "build"
+        },
+        {
+            "label": "Discord Bot",
+            "type": "shell",
+            "command": "${command:python.interpreterPath} ${workspaceFolder}/discord_bot/app.py",
+            "args": [],
+            "group": "build"
+        },
+        {
+            "label": "MongoDB",
+            "type": "shell",
+            "command": "mongod --dbpath ./mongo_data --bind_ip 127.0.0.1",
+            "args": [],
+            "group": "build"
+        },
+        {
+            "label": "Mongo Express",
+            "type": "shell",
+            "command": "mongo-express",
+            "args": [],
+            "group": "build"
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+-r requirements-dev.txt
+
+flask
+uvicorn
+fastapi
+sqlalchemy
+pydantic

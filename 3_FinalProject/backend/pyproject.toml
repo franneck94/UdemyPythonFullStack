@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77", "setuptools_scm[toml]==8.3.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gw2tp_backend"
+authors = [{ name = "Jan Schaffranek" }]
+version = "0.1.0"
+description = "Utility functions for the GW2TP website and API"
+requires-python = ">=3.10"
+
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Typing :: Typed",
+]
+
+dependencies = [
+    "setuptools",
+    "fastapi",
+    "uvicorn",
+    "httpx",
+    "flask",
+    "aiohttp",
+    "pydantic",
+    "apscheduler",
+    "starlette",
+    "requests",
+    "pymongo",
+]
+optional-dependencies = { dev = [
+    "black>=25.1.0",
+    "isort>=6.0.1",
+    "ruff>=0.0.300",
+    "mypy>=1.0.0",
+] }

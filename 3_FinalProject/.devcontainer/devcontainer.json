@@ -1,0 +1,38 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+{
+    "name": "GW2TP Project",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/ruff:1": {},
+        "ghcr.io/va-h/devcontainers-features/uv:1": {
+            "shellautocompletion": true,
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers-extra/features/mongosh-homebrew:1": {},
+        "ghcr.io/devcontainers-extra/features/mongodb-atlas-cli-homebrew:1": {},
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    },
+    "forwardPorts": [5000, 8000, 8081, 27017],
+    "postCreateCommand": "pip install --upgrade pip && pip install -e .",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "qwtel.sqlite-viewer",
+                "franneck94.vscode-coding-tools-extension-pack",
+                "franneck94.vscode-python-dev-extension-pack",
+                "github.copilot-chat",
+                "mongodb.mongodb-vscode"
+            ],
+            "settings": {
+                "trailing-spaces.trimOnSave": true,
+                "editor.renderWhitespace": "all",
+                "editor.rulers": [120]
+            }
+        }
+    },
+    // "remoteUser": "root"
+    "mounts": []
+}

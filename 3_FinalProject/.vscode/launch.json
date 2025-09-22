@@ -1,0 +1,76 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "WEB",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "console": "integratedTerminal",
+            "args": [
+                "frontend.app:app",
+                "--reload",
+                "--port",
+                "5000",
+                "--host",
+                "0.0.0.0"
+            ],
+            "justMyCode": false
+        },
+        {
+            "name": "API Server",
+            "request": "launch",
+            "type": "debugpy",
+            "module": "uvicorn",
+            "console": "integratedTerminal",
+            "args": [
+                "backend.api:app",
+                "--reload",
+                "--port",
+                "8000",
+                "--host",
+                "0.0.0.0"
+            ],
+            "justMyCode": false
+        },
+        {
+            "name": "Discord Bot",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/discord_bot/app.py",
+            "console": "integratedTerminal",
+            "args": [],
+            "justMyCode": true
+        },
+        {
+            "name": "Attach to Backend (Docker)",
+            "type": "debugpy",
+            "request": "attach",
+            "connect": {
+                "host": "localhost",
+                "port": 5678
+            },
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}/backend",
+                    "remoteRoot": "/app/backend"
+                }
+            ]
+        },
+        {
+            "name": "Attach to Frontend (Docker)",
+            "type": "debugpy",
+            "request": "attach",
+            "connect": {
+                "host": "localhost",
+                "port": 5678
+            },
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}/frontend",
+                    "remoteRoot": "/app/frontend"
+                }
+            ]
+        }
+    ]
+}
